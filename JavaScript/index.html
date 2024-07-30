@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="sTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>age</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>Inthi</td>
+                <td>23</td>
+                <td><button onclick="deleteMe(event)">Delete</button></td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Purna</td>
+                <td>28</td>
+                <td><button onclick="deleteMe(event)">Delete</button></td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>Dasun</td>
+                <td>20</td>
+                <td><button onclick="deleteMe(event)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="addNew()">Add New</button>
+    <script>
+        function deleteMe(){
+            let tr= event.target.closest('tr');
+            console.log(tr);
+            tr.remove();
+        }
+        function addNew(){
+            let tr=document.createElement('tr');
+            tr.innerHTML="<td>004</td><td>New Name</td><td>New Age</td><td><button onclick=\"deleteMe(event)\">delete</button></td>";
+            let table=document.getElementById('sTable');
+            table.append(tr);
+            console.log(tr);
+
+        }
+    </script>
+</body>
+</html>
